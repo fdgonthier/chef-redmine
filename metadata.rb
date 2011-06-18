@@ -6,7 +6,7 @@ version           "0.10.3"
 
 recipe "redmine", "Installs and configures redmine under passenger + apache2"
 
-%w{ apache2 rails passenger_apache2 mysql sqlite }.each do |cb|
+%w{ apache2 passenger_apache2 mysql sqlite }.each do |cb|
   depends cb
 end
 
