@@ -1,8 +1,8 @@
-maintainer        "Opscode, Inc."
-maintainer_email  "cookbooks@opscode.com"
+maintainer        "Christian Trabold"
+maintainer_email  "skype@christian-trabold.de"
 license           "Apache 2.0"
 description       "Installs and configures redmine as a Rails app in passenger+apache2"
-version           "0.10.3"
+version           "0.11.0"
 
 recipe "redmine", "Installs and configures redmine under passenger + apache2"
 

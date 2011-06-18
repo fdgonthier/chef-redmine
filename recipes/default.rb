@@ -1,8 +1,8 @@
 #
-# Author: Joshua Timberman <joshua@housepub.org>
 # Cookbook Name:: redmine
 # Recipe:: default
 #
+# Copyright 2011, Christian Trabold
 # Copyright 2008-2009, Joshua Timberman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
