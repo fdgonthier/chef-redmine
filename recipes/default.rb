@@ -74,6 +74,10 @@ template "/srv/redmine-#{node[:redmine][:version]}/config/database.yml" do
   mode "0664"
 end
 
+gem_package "i18n" do
+  version "0.4.2"
+end
+
 template "/srv/redmine-#{node[:redmine][:version]}/config/environment.rb" do
   source "environment.rb.erb"
   owner node[:apache][:user]
