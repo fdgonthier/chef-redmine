@@ -74,6 +74,13 @@ template "/srv/redmine-#{node[:redmine][:version]}/config/database.yml" do
   mode "0664"
 end
 
+template "/srv/redmine-#{node[:redmine][:version]}/config/environment.rb" do
+  source "environment.rb.erb"
+  owner node[:apache][:user]
+  group node[:apache][:user]
+  mode "0664"
+end
+
 execute "rake db:migrate RAILS_ENV='production'" do
   user node[:apache][:user]
   cwd "/srv/redmine-#{node[:redmine][:version]}"
