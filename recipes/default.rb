@@ -1,4 +1,6 @@
 #
+# Author: Christian Trabold <cookbooks@christian-trabold.de>
+# Author: Joshua Timberman <joshua@housepub.org>
 # Cookbook Name:: redmine
 # Recipe:: default
 #
