@@ -1,5 +1,5 @@
 maintainer        "Christian Trabold"
-maintainer_email  "skype@christian-trabold.de"
+maintainer_email  "cookbooks@christian-trabold.de"
 license           "Apache 2.0"
 description       "Installs and configures redmine as a Rails app in passenger+apache2"
 version           "0.11.0"
