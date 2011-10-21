@@ -85,5 +85,6 @@ web_app "redmine" do
   template "redmine.conf.erb"
   server_name "redmine.#{node[:domain]}"
   server_aliases [ "redmine", node[:hostname] ]
-  rails_env "production"
+  rails_env node[:redmine][:rails][:environment]
+  max_pool_size node[:redmine][:rails][:max_pool_size]
 end
