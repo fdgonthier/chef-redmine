@@ -15,6 +15,7 @@ Opscode cookbooks (http://github.com/opscode/cookbooks/tree/master)
 * git
 * sqlite
 * mysql
+* rails
 * passenger_apache2
 * apache2
 
