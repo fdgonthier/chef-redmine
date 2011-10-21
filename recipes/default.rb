@@ -55,6 +55,15 @@ when "sqlite"
   end
 when "mysql"
   include_recipe "mysql::client"
+
+  # Create database
+  mysql_database "create application_production database '#{node[:redmine][:db][:database]}'" do
+    host node[:redmine][:db][:hostname]
+    username "root"
+    password node[:mysql][:server_root_password]
+    database "#{node[:redmine][:db][:database]}"
+    action :create_db
+  end
 end
 
 template "/srv/redmine-#{node[:redmine][:version]}/config/database.yml" do

@@ -35,6 +35,7 @@ default[:redmine][:version] = "1.2.0"
 default[:redmine][:db][:type]     = "sqlite"
 default[:redmine][:db][:user]     = "redmine"
 default[:redmine][:db][:password] = pw
+default[:redmine][:db][:database] = "redmine"
 default[:redmine][:db][:hostname] = "localhost"
 
 # Ticket #10953: Migrate attributes from rails cookbook for reuse / upwards compatibility
