@@ -23,6 +23,15 @@ include_recipe "apache2"
 include_recipe "apache2::mod_rewrite"
 include_recipe "passenger_apache2::mod_rails"
 
+# Install a few requirements for the rmagick gem.
+package "libmagickcore-dev"
+package "libmagickwand-dev"
+
+# Redmine gems requirement
+gem_package "bundler" do
+  action :install
+end
+
 bash "install_redmine" do
   cwd "/srv"
   user "root"
@@ -59,12 +68,24 @@ template "/srv/redmine-#{node[:redmine][:version]}/config/database.yml" do
   mode "0664"
 end
 
+execute "bundle install --without development test" do
+  cwd "/srv/redmine-#{node[:redmine][:version]}"
+end
+
 execute "rake db:migrate RAILS_ENV='production'" do
   user node[:apache][:user]
   cwd "/srv/redmine-#{node[:redmine][:version]}"
   not_if { ::File.exists?("/srv/redmine-#{node[:redmine][:version]}/db/schema.rb") }
 end
 
+execute "rake generate_secret_token" do
+  user node[:apache][:user]
+  cwd "/srv/redmine-#{node[:redmine][:version]}"
+  not_if { 
+    ::File.exists?("/srv/redmine-#{node[:redmine][:version]}/config/initializers/secret_token.rb")
+  }
+end
+  
 web_app "redmine" do
   docroot "/srv/redmine/public"
   template "redmine.conf.erb"
